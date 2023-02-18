@@ -1,6 +1,7 @@
-const express = require('express');
-const multer = require('multer');
-const cors = require('cors');
+import express from 'express';
+import multer from 'multer';
+import cors from 'cors';
+import { internalIpV4Sync } from 'internal-ip';
 
 const storage = multer.diskStorage({
     destination: './uploads',
@@ -14,6 +15,8 @@ const upload = multer({ storage: storage });
 const app = express();
 
 app.use(cors());
+
+app.use(express.static('build'));
 
 app.post('/foto', upload.single('foto'), function (req, res, next) {
     console.log(`Got file: ${Boolean(req.file)}`);
@@ -40,5 +43,5 @@ app.post('/cool-profile', cpUpload, function (req, res, next) {
 }); */
 
 app.listen(2424, '0.0.0.0', () => {
-    console.log('Foto srv listening on 0.0.0.0:2424');
+    console.log(`Foto srv listening on ${internalIpV4Sync()}:2424`);
 });

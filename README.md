@@ -14,31 +14,23 @@ Open new console and execute
 yarn build
 ```
 
-#### 2. Run API server
+#### 2. Run server
 
 Open new console and execute
 
 ```sh
-yarn server:api
+yarn server
 ```
 
-#### 3. Run static files server
+#### 3. Launch app on mobile
 
-Open new console and execute
-
-```sh
-yarn server:static
-```
-
-#### 4. Launch app on mobile
-
-Open URL from static files server on a mobile device. See console output for the right IP.
+Open URL from static files server on a mobile device. See server console output for the right IP.
 
 ```sh
 http://xxx.xxx.xxx.xxx:3000
 ```
 
-#### 5. Upload a foto
+#### 4. Upload a foto
 
 Press "Выберите файл" to launch camera and take a foto.
 Then press "Send" button. The foto should be uploaded to /uploads dir.
