@@ -27,7 +27,7 @@ yarn server
 Open URL from static files server on a mobile device. See server console output for the right IP.
 
 ```sh
-http://xxx.xxx.xxx.xxx:3000
+http://xxx.xxx.xxx.xxx:2424
 ```
 
 #### 4. Upload a foto
