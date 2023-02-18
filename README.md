@@ -1,6 +1,6 @@
 # Install
 
-```
+```sh
 yarn
 ```
 
@@ -10,7 +10,7 @@ yarn
 
 Open new console and execute
 
-```
+```sh
 yarn build
 ```
 
@@ -18,7 +18,7 @@ yarn build
 
 Open new console and execute
 
-```
+```sh
 yarn server:api
 ```
 
@@ -26,7 +26,7 @@ yarn server:api
 
 Open new console and execute
 
-```
+```sh
 yarn server:static
 ```
 
@@ -34,7 +34,7 @@ yarn server:static
 
 Open URL from static files server on a mobile device. See console output for the right IP.
 
-```
+```sh
 http://xxx.xxx.xxx.xxx:3000
 ```
 
