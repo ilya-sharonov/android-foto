@@ -18,7 +18,7 @@ app.use(cors());
 
 app.use(express.static('build'));
 
-app.post('/foto', upload.single('foto'), function (req, res, next) {
+app.post('/foto', upload.single('scaled'), function (req, res, next) {
     console.log(`Got file: ${Boolean(req.file)}`);
     res.status(200).send('ok');
 });
