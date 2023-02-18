@@ -3,24 +3,14 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <form action="http://192.168.10.116:2424/foto" method="post" encType="multipart/form-data">
+                <input accept="image/*" id="icon-button-file" name="foto" type="file" capture="environment" />
+                <input type="submit" value="Send" />
+            </form>
+        </div>
+    );
 }
 
 export default App;
