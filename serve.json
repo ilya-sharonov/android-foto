@@ -1,3 +1,0 @@
-{
-    "redirects": [{ "source": "/foto", "destination": "http://0.0.0.0:2424/foto" }]
-}
