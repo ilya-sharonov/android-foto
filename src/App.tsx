@@ -1,34 +1,18 @@
 import React, { ChangeEvent } from 'react';
-import ImageBlobReduce from 'image-blob-reduce';
+
+import { createWorkerFactory, useWorker } from '@shopify/react-web-worker';
 import './App.css';
 
-const reducer = new ImageBlobReduce();
-
-async function processImages(event: ChangeEvent) {
-    //@ts-ignore
-    const file = event.target.files[0];
-    try {
-        let resizedImage = await reducer.toBlob(file, { max: 1200 });
-        const url = 'http://localhost:2424/foto';
-        const formData = new FormData();
-        formData.append('scaled', resizedImage, 'scaled.jpg');
-        const options = {
-            method: 'POST',
-            body: formData,
-        };
-
-        let result = await fetch(url, options);
-
-        // TODO: Handle the result
-        console.log(result);
-        return result;
-    } catch (error) {
-        console.error(error);
-        throw error;
-    }
-}
+const createWorker = createWorkerFactory(() => import('./worker'));
 
 function App() {
+    const worker = useWorker(createWorker);
+
+    async function processImages(event: ChangeEvent) {
+        //@ts-ignore
+        const file = event.target.files[0];
+        await worker.processImage(file);
+    }
     return (
         <div className="App">
             <form action="/foto" method="post" encType="multipart/form-data">
