@@ -23,6 +23,11 @@ app.post('/foto', upload.single('foto'), function (req, res, next) {
     res.status(200).send('ok');
 });
 
+app.post('/pdf', upload.single('pdf'), function (req, res, next) {
+    console.log(`Got file: ${Boolean(req.file)}`);
+    res.status(200).send('ok');
+});
+
 /* app.post('/photos/upload', upload.array('photos', 12), function (req, res, next) {
     // req.files is array of `photos` files
     // req.body will contain the text fields, if there were any
