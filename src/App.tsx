@@ -50,14 +50,14 @@ async function transfer(pdf: Blob) {
 async function sendPdf() {
     const docDefinition: any = {
         pageSize: 'A4',
-        pageMargins: [5, 5, 5, 5],
+        pageMargins: [5, 5, 5, 5], // margins to fit to A4
         content: [],
     };
     for (const img of images) {
         const base64Img = await blobToBase64(img);
         docDefinition.content.push({
             image: base64Img,
-            width: 585,
+            width: 585, // width to autofit to A4
         });
     }
     const pdfDocGenerator = pdfMake.createPdf(docDefinition);
